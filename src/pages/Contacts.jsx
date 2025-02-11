@@ -10,6 +10,7 @@ export default function Contacts() {
       type: "info",
       message: "Per raggiungerci verrai reindirizzato sul tuo navigatore",
     });
+    setTimeout(() => setAlertData({ type: "", message: "" }), 3000);
   };
 
   const sendEmail = () => {
@@ -17,6 +18,7 @@ export default function Contacts() {
       type: "success",
       message: "Sarai reindirizzato nella tua mail per scriverci",
     });
+    setTimeout(() => setAlertData({ type: "", message: "" }), 3000);
   };
 
   const callUs = () => {
@@ -24,6 +26,7 @@ export default function Contacts() {
       type: "success",
       message: "Stai per chiamarci",
     });
+    setTimeout(() => setAlertData({ type: "", message: "" }), 3000);
   };
 
   const visitWebSite = () => {
@@ -31,6 +34,7 @@ export default function Contacts() {
       type: "info",
       message: "Sarai reindirizzato al nostro sito web",
     });
+    setTimeout(() => setAlertData({ type: "", message: "" }), 3000);
   };
 
   const socials = {
@@ -44,6 +48,7 @@ export default function Contacts() {
       type: "danger",
       message: `Stai per essere reindirizzato su ${socialName}`,
     });
+    setTimeout(() => setAlertData({ type: "", message: "" }), 3000);
   };
 
   useEffect(() => {
