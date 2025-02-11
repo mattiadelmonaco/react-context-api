@@ -23,7 +23,7 @@ export default function Alert({ type = "info", message = "Info" }) {
 
   return (
     <div
-      className={`text-white min-w-70 max-w-100 p-3 shadow-2xl fixed bottom-15 right-15 ${classes[type]}`}
+      className={`text-white min-w-70 max-w-100 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg ${classes[type]}`}
     >
       <div className="flex justify-between items-center">
         <i className={icons[type]}></i>
