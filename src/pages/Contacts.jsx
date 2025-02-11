@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
-import SocialBtnRightFooter from "../components/SocialBtnRightFooter";
+import { useAlertContext } from "../context/AlertContext";
+import { useEffect } from "react";
 
 export default function Contacts() {
+  const { setAlertData } = useAlertContext();
+
+  useEffect(() => {
+    setAlertData({
+      type: "info",
+      message: "Per raggiungerci verrai reindirizzato sul tuo navigatore",
+    });
+  }, [setAlertData]);
+
+  // const getPosition = () => {
+  //   useAlertContext({
+  //     type: "info",
+  //     message: "Per raggiungerci verrai reindirizzato sul tuo navigatore",
+  //   });
+  // };
+
   return (
     <div className="ms-container">
       <div className="flex flex-col items-center text-center">
@@ -9,15 +26,17 @@ export default function Contacts() {
         <ul>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">📍Indirizzo:</h2>
-            <p className="text-lg">Via da Qui, 123 67039 Sulmona(AQ), Italia</p>
+            <p className="text-lg cursor-pointer">
+              Via da Qui, 123 67039 Sulmona(AQ), Italia
+            </p>
           </li>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">📧 Email:</h2>
-            <p className="text-lg">contatti@emailinventata.it</p>
+            <p className="text-lg cursor-pointer">contatti@emailinventata.it</p>
           </li>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">📞 Telefono:</h2>
-            <p className="text-lg">+39 0864 1234 5678</p>
+            <p className="text-lg cursor-pointer">+39 0864 1234 5678</p>
           </li>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">🌐 Sito Web:</h2>

@@ -1,7 +1,7 @@
 import { useAlertContext } from "../context/AlertContext";
 
 export default function Alert() {
-  const { alertData, setAlertData } = useAlertContext();
+  const { alertData, setAlertData } = useAlertContext({});
 
   const closeAlert = () => {
     setAlertData({ message: "" });
@@ -23,16 +23,16 @@ export default function Alert() {
 
   return (
     <div
-      className={`text-white min-w-70 max-w-100 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg ${
+      className={`text-white min-w-70 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg ${
         classes[alertData.type]
       }`}
     >
       <div className="flex justify-between items-center">
-        <i className={icons[alertData.type]}></i>
+        <i className={`px-2 ${icons[alertData.type]}`}></i>
         <p>{alertData.message}</p>
         <i
           onClick={closeAlert}
-          className="fa-solid fa-xmark cursor-pointer"
+          className="fa-solid fa-xmark cursor-pointer px-2"
         ></i>
       </div>
     </div>
