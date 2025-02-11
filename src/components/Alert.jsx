@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useAlertContext } from "../context/AlertContext";
 
-export default function Alert({ type = "info", message = "Info" }) {
-  const [alertData, setAlertData] = useState({ type, message });
+export default function Alert() {
+  const { alertData, setAlertData } = useAlertContext();
+
+  const closeAlert = () => {
+    setAlertData({ message: "" });
+  };
 
   const icons = {
     info: "fa-solid fa-circle-info",
@@ -15,21 +19,19 @@ export default function Alert({ type = "info", message = "Info" }) {
     danger: "bg-red-900",
   };
 
-  const closeAlert = () => {
-    setAlertData({ message: "" });
-  };
-
   if (!alertData.message) return null;
 
   return (
     <div
-      className={`text-white min-w-70 max-w-100 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg ${classes[type]}`}
+      className={`text-white min-w-70 max-w-100 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg ${
+        classes[alertData.type]
+      }`}
     >
       <div className="flex justify-between items-center">
-        <i className={icons[type]}></i>
-        <p>{message}</p>
+        <i className={icons[alertData.type]}></i>
+        <p>{alertData.message}</p>
         <i
-          onClick={(e) => closeAlert()}
+          onClick={closeAlert}
           className="fa-solid fa-xmark cursor-pointer"
         ></i>
       </div>
