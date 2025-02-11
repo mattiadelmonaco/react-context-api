@@ -5,19 +5,53 @@ import { useEffect } from "react";
 export default function Contacts() {
   const { setAlertData } = useAlertContext();
 
-  useEffect(() => {
+  const getPosition = () => {
     setAlertData({
       type: "info",
       message: "Per raggiungerci verrai reindirizzato sul tuo navigatore",
     });
-  }, [setAlertData]);
+  };
 
-  // const getPosition = () => {
-  //   useAlertContext({
-  //     type: "info",
-  //     message: "Per raggiungerci verrai reindirizzato sul tuo navigatore",
-  //   });
-  // };
+  const sendEmail = () => {
+    setAlertData({
+      type: "success",
+      message: "Sarai reindirizzato nella tua mail per scriverci",
+    });
+  };
+
+  const callUs = () => {
+    setAlertData({
+      type: "success",
+      message: "Stai per chiamarci",
+    });
+  };
+
+  const visitWebSite = () => {
+    setAlertData({
+      type: "info",
+      message: "Sarai reindirizzato al nostro sito web",
+    });
+  };
+
+  const socials = {
+    facebook: "Facebook",
+    instagram: "Instagram",
+    youtube: "YouTube",
+  };
+
+  const visitSocial = (socialName) => {
+    setAlertData({
+      type: "danger",
+      message: `Stai per essere reindirizzato su ${socialName}`,
+    });
+  };
+
+  useEffect(() => {
+    setAlertData({
+      type: "",
+      message: "",
+    });
+  }, [setAlertData]);
 
   return (
     <div className="ms-container">
@@ -26,21 +60,41 @@ export default function Contacts() {
         <ul>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">📍Indirizzo:</h2>
-            <p className="text-lg cursor-pointer">
+            <a
+              href="#"
+              onClick={getPosition}
+              className="text-lg text-red-800 font-semibold"
+            >
               Via da Qui, 123 67039 Sulmona(AQ), Italia
-            </p>
+            </a>
           </li>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">📧 Email:</h2>
-            <p className="text-lg cursor-pointer">contatti@emailinventata.it</p>
+            <a
+              onClick={sendEmail}
+              href="#"
+              className="text-lg text-red-800 font-semibold"
+            >
+              contatti@emailinventata.it
+            </a>
           </li>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">📞 Telefono:</h2>
-            <p className="text-lg cursor-pointer">+39 0864 1234 5678</p>
+            <a
+              onClick={callUs}
+              href="#"
+              className="text-lg text-red-800 font-semibold"
+            >
+              +39 0864 1234 5678
+            </a>
           </li>
           <li className="mb-4">
             <h2 className="text-2xl font-bold">🌐 Sito Web:</h2>
-            <a className="text-lg text-red-800 font-semibold" href="#">
+            <a
+              onClick={visitWebSite}
+              className="text-lg text-red-800 font-semibold"
+              href="#"
+            >
               www.sitoacaso.it
             </a>
           </li>
@@ -49,20 +103,32 @@ export default function Contacts() {
               <h2 className="text-2xl font-bold">📱 Social Media:</h2>
               <li className="my-1">
                 <strong>🔸 Facebook: </strong>
-                <a className="text-lg text-red-800 font-semibold" href="#">
+                <a
+                  onClick={() => visitSocial(socials.facebook)}
+                  className="text-lg text-red-800 font-semibold"
+                  href="#"
+                >
                   facebook.com/paginasocial
                 </a>
               </li>
               <li className="my-1">
                 <strong>🔸 Instagram: </strong>
-                <a className="text-lg text-red-800 font-semibold" href="#">
+                <a
+                  onClick={() => visitSocial(socials.instagram)}
+                  className="text-lg text-red-800 font-semibold"
+                  href="#"
+                >
                   {" "}
                   instagram.com/paginasocial
                 </a>
               </li>
               <li className="my-1">
-                <strong>🔸 YouTube: </strong>
-                <a className="text-lg text-red-800 font-semibold" href="#">
+                <strong>🔸 Youtube:</strong>
+                <a
+                  onClick={() => visitSocial(socials.youtube)}
+                  className="text-lg text-red-800 font-semibold"
+                  href="#"
+                >
                   {" "}
                   youtube.com/paginasocial
                 </a>
