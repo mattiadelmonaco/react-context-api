@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useSearchBarContext } from "../context/SearchBarContext";
 
 export default function SearchBar() {
-  const [search, setSearch] = useState("");
+  const { search, setSearch } = useSearchBarContext();
 
   return (
     <div>

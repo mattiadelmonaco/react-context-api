@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { AlertProvider } from "../context/AlertContext";
+import { SearchBarProvider } from "../context/SearchBarContext";
 
 export default function DefaultLayout() {
   const location = useLocation();
@@ -16,7 +17,9 @@ export default function DefaultLayout() {
             location.pathname.startsWith("/posts-list") ? "bg-posts-list" : ""
           }
         >
-          <Outlet />
+          <SearchBarProvider>
+            <Outlet />
+          </SearchBarProvider>
         </main>
       </AlertProvider>
       <Footer />

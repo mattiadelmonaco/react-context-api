@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-export default function PostsListComp({ postData }) {
+export default function PostsListComp({ postsFiltered }) {
   return (
     <ul className="grid grid-cols-3 gap-10 w-6xl mx-auto text-white">
-      {postData.map((post) => {
+      {postsFiltered.map((post) => {
         return (
           <Link to={`/posts-list/${post.id}`} key={post.id}>
             <li className="bg-red-950 h-full rounded-3xl flex flex-col items-center p-4 shadow-2xl ms-card">
