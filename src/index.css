@@ -64,6 +64,10 @@ header li:hover {
 
 /* MAIN */
 
+/* main {
+  min-height: 100vh;
+} */
+
 .ms-card {
   transition: 0.4s;
 }
