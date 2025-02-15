@@ -1,4 +1,3 @@
-import SearchBar from "../components/SearchBar";
 import { createContext, useState, useContext } from "react";
 
 const SearchBarContext = createContext();
@@ -8,7 +7,6 @@ function SearchBarProvider({ children }) {
 
   return (
     <SearchBarContext.Provider value={{ search, setSearch }}>
-      <SearchBar />
       {children}
     </SearchBarContext.Provider>
   );

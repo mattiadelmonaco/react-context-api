@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 import PostsListComp from "../components/PostsListComp";
+import SearchBar from "../components/SearchBar";
 
 import { useSearchBarContext } from "../context/SearchBarContext";
 
@@ -26,6 +27,7 @@ export default function PostList() {
 
   return (
     <section className="ms-container">
+      <SearchBar />
       <PostsListComp postsFiltered={postsFiltered} />
     </section>
   );
